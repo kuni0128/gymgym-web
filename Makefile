@@ -7,6 +7,8 @@ API_RUN_CMD=${DOCKER_CMD} run ${API_SERVICE_NAME}
 # Main command
 # -------------------
 
+build:
+	${DOCKER_CMD} build
 up:
 	${DOCKER_CMD} up -d
 stop:
