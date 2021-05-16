@@ -18,6 +18,8 @@ ps:
 # API command
 # -------------------
 
+api:
+	${API_RUN_CMD}
 bundle/install:
 	${API_RUN_CMD} bundle install
 db/migrate:
