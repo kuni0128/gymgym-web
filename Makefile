@@ -22,3 +22,9 @@ bundle/install:
 	${API_RUN_CMD} bundle install
 db/migrate:
 	${API_RUN_CMD} rails db:migrate
+rubocop:
+	${API_RUN_CMD} bundle exec rubocop
+rubocop/fix:
+	${API_RUN_CMD} bundle exec rubocop -a
+rspec:
+	${API_RUN_CMD} bundle exec rspec
