@@ -17,7 +17,7 @@ jobs:
           key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'Gemfile.lock') }}
       - name: create image
         if: steps.cache-docker.outputs.cache-hit != 'true'
-        run: docker build
+        run: make build
       - name: save docker image if cache not exists
         if: steps.cache-docker.outputs.cache-hit != 'true'
         run: mkdir -p ~/docker_images && docker save gymgym-web:latest > ~/docker_images/gymgym-web_latest.tar
