@@ -1,4 +1,4 @@
-DOCKER_CMD:=docker compose
+DOCKER_CMD:=docker-compose -f docker-compose.yaml -p gymgym-web
 
 API_SERVICE_NAME:=api
 API_RUN_CMD=${DOCKER_CMD} run ${API_SERVICE_NAME}
