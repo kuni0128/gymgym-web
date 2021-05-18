@@ -7,18 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: cache docker images
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         id: cache-docker
         env:
           cache-name: docker-image
         with:
           path: ~/docker_images
           key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'Gemfile.lock') }}
-      - name: build docker image
+      - name: Build docker image
         if: steps.cache-docker.outputs.cache-hit != 'true'
         run: make build
-      - name: save docker image
+      - name: Save docker image
         if: steps.cache-docker.outputs.cache-hit != 'true'
         run: mkdir -p ~/docker_images && docker save gymgym-web_api:latest > ~/docker_images/gymgym-web_api_latest.tar
   rubocop_rspec:
@@ -26,16 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: cache docker images
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         id: cache-docker
         env:
           cache-name: docker-image
         with:
           path: ~/docker_images
           key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'Gemfile.lock') }}
-      - name: load docker image
+      - name: Load docker image
         run: docker load < ~/docker_images/gymgym-web_api_latest.tar
-      - name: run rubocop
+      - name: Run rubocop
         id: rubocop
         run: make rubocop
