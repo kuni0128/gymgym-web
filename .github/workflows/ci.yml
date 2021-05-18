@@ -38,3 +38,6 @@ jobs:
       - name: Run rubocop
         id: rubocop
         run: make rubocop
+      - name: Run rspec
+        id: rspec
+        run: make rspec
