@@ -15,6 +15,8 @@ stop:
 	${DOCKER_CMD} stop
 ps:
 	${DOCKER_CMD} ps
+console/db:
+	${DOCKER_CMD} exec db bash
 
 # -------------------
 # API command
