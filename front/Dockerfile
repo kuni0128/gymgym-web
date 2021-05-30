@@ -1,9 +1,7 @@
 FROM node:14.17-alpine3.10
 
-ENV APP_HOME /app
-RUN mkdir -p $APP_HOME
-WORKDIR $APP_HOME
+ENV APP_ROOT /app
+WORKDIR $APP_ROOT
 
-RUN apk update && npm install -g @vue/cli
 COPY package.json .
-RUN npm install
+RUN apk update && npm install -g @vue/cli && npm install

@@ -7,14 +7,27 @@ API_RUN_CMD=${DOCKER_CMD} run ${API_SERVICE_NAME}
 # Main command
 # -------------------
 
+setup: build up _prepare
+_prepare:
+	${API_RUN_CMD} rails db:create
+	${API_RUN_CMD} rails db:migrate
+	${API_RUN_CMD} rails db:seed
 build:
 	${DOCKER_CMD} build
 up:
 	${DOCKER_CMD} up -d
-stop:
+down:
 	${DOCKER_CMD} stop
 ps:
 	${DOCKER_CMD} ps
+logs:
+	${DOCKER_CMD} logs
+console/api:
+	${DOCKER_CMD} exec api bash
+console/front:
+	${DOCKER_CMD} exec front ash
+console/db:
+	${DOCKER_CMD} exec db bash
 
 # -------------------
 # API command

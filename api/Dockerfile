@@ -6,7 +6,6 @@ RUN apt-get update -qq && \
                        nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /app
 ENV APP_ROOT /app
 WORKDIR $APP_ROOT
 
