@@ -33,7 +33,7 @@ console/db:
 # API command
 # -------------------
 
-foo:
+rails:
 	${API_RUN_CMD} rails ${CMD}
 bundle/install:
 	${API_RUN_CMD} bundle install
