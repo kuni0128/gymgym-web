@@ -33,6 +33,8 @@ console/db:
 # API command
 # -------------------
 
+foo:
+	${API_RUN_CMD} rails ${CMD}
 bundle/install:
 	${API_RUN_CMD} bundle install
 db/migrate:
