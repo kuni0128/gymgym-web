@@ -38,5 +38,9 @@ module App
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Settings.hosts&.each do |host|
+      config.hosts << host if host.present?
+    end
   end
 end
