@@ -14,7 +14,7 @@ jobs:
           cache-name: docker-image
         with:
           path: ${{ env.docker-image-dir }}
-          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'Gemfile.lock') }}
+          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'api/Gemfile.lock') }}
       - name: Build docker image
         if: steps.cache-docker.outputs.cache-hit != 'true'
         run: make build
@@ -32,7 +32,7 @@ jobs:
           cache-name: docker-image
         with:
           path: ${{ env.docker-image-dir }}
-          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'Gemfile.lock') }}
+          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api/Dockerfile', 'api/Gemfile.lock') }}
       - name: Load docker image
         run: docker load < ${{ env.docker-image-dir }}/gymgym-web_api_latest.tar
       - name: Run rubocop

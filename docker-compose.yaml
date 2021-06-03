@@ -4,7 +4,7 @@ services:
   api:
     build: ./api
     ports:
-      - '3000:3000'
+      - '13000:3000'
     depends_on:
       - db
     volumes:
@@ -27,10 +27,10 @@ services:
     volumes:
       - ./front:/app
     ports:
-      - '8080:8080'
+      - '18080:8080'
     tty: true
     stdin_open: true
-    command: npm run serve
+    command: yarn serve
 volumes:
   mysql_data:
   bundle:
