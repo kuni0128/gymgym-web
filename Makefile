@@ -41,6 +41,8 @@ bundle/install:
 	${API_RUN_CMD} bundle install
 db/migrate:
 	${API_RUN_CMD} rails db:migrate
+db/rollback:
+	${API_RUN_CMD} rails db:rollback
 rubocop:
 	${API_RUN_CMD} bundle exec rubocop
 rubocop/fix:
