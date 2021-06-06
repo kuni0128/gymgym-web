@@ -1,2 +1,6 @@
 hosts:
   - gymgym.tokyo
+
+mailer:
+  sender:
+    default: k.ishikawa.0128@gmail.com
