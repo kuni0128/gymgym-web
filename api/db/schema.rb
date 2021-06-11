@@ -10,6 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_05_075937) do
+
+  create_table "trainees", charset: "utf8mb4", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "nickname"
+    t.string "email"
+    t.string "encrypted_password", default: "", null: false
+    t.text "tokens"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_trainees_on_email", unique: true
+    t.index ["uid", "provider"], name: "index_trainees_on_uid_and_provider", unique: true
+  end
 
 end

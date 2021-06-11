@@ -1,1 +1,5 @@
 hosts:
+
+mailer:
+  sender:
+    default:

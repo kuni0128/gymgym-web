@@ -20,8 +20,10 @@ down:
 	${DOCKER_CMD} stop
 ps:
 	${DOCKER_CMD} ps
-logs:
-	${DOCKER_CMD} logs
+log/api:
+	${DOCKER_CMD} logs -f api
+log/front:
+	${DOCKER_CMD} logs -f front
 console/api:
 	${DOCKER_CMD} exec api bash
 console/front:
@@ -41,6 +43,8 @@ bundle/install:
 	${API_RUN_CMD} bundle install
 db/migrate:
 	${API_RUN_CMD} rails db:migrate
+db/rollback:
+	${API_RUN_CMD} rails db:rollback
 rubocop:
 	${API_RUN_CMD} bundle exec rubocop
 rubocop/fix:
